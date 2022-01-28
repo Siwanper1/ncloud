@@ -1,0 +1,209 @@
+
+[[_definitions]]
+== Definitions
+
+[[_5be2d819a948034a11e5df875301af8f]]
+=== Page«UserQueryParam»
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**asc** +
+__optional__|< string > array
+|**ascs** +
+__optional__|< string > array
+|**current** +
+__optional__|integer (int64)
+|**desc** +
+__optional__|< string > array
+|**descs** +
+__optional__|< string > array
+|**optimizeCountSql** +
+__optional__|boolean
+|**pages** +
+__optional__|integer (int64)
+|**records** +
+__optional__|< object > array
+|**searchCount** +
+__optional__|boolean
+|**size** +
+__optional__|integer (int64)
+|**total** +
+__optional__|integer (int64)
+|===
+
+
+[[_userform]]
+=== UserForm
+添加用户信息
+
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**accountNonExpired** +
+__optional__|用户账号是否过期，默认未过期|boolean
+|**accountNonLocked** +
+__optional__|用户是否被锁定，默认未锁定|boolean
+|**credentialsNonExpired** +
+__optional__|用户密码是否过期，默认未过期|boolean
+|**description** +
+__optional__|用户描述信息|string
+|**enabled** +
+__optional__|用户是否可用，默认可用|boolean
+|**mobile** +
+__optional__|用户电话|string
+|**name** +
+__optional__|用户姓名|string
+|**password** +
+__optional__|用户密码|string
+|**roleIds** +
+__optional__|用户角色ID|< string > array
+|**username** +
+__optional__|用户名|string
+|===
+
+
+[[_userqueryform]]
+=== UserQueryForm
+查询用户信息
+
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**createdTimeEnd** +
+__optional__|结束查询日期|string (date-time)
+|**createdTimeStart** +
+__optional__|开始查询日期|string (date-time)
+|**current** +
+__optional__||integer (int64)
+|**mobile** +
+__optional__|用户电话|string
+|**name** +
+__optional__|用户姓名|string
+|**page** +
+__optional__||<<_5be2d819a948034a11e5df875301af8f,Page«UserQueryParam»>>
+|**size** +
+__optional__||integer (int64)
+|**username** +
+__optional__|用户名|string
+|===
+
+
+[[_userqueryparam]]
+=== UserQueryParam
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**createdTimeEnd** +
+__optional__|string (date-time)
+|**createdTimeStart** +
+__optional__|string (date-time)
+|**mobile** +
+__optional__|string
+|**name** +
+__optional__|string
+|**username** +
+__optional__|string
+|===
+
+
+[[_userupdateform]]
+=== UserUpdateForm
+更新用户信息
+
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**accountNonExpired** +
+__optional__|用户账号是否过期，默认未过期|boolean
+|**accountNonLocked** +
+__optional__|用户是否被锁定，默认未锁定|boolean
+|**credentialsNonExpired** +
+__optional__|用户密码是否过期，默认未过期|boolean
+|**description** +
+__optional__|用户描述|string
+|**enabled** +
+__optional__|用户是否可用，默认可用|boolean
+|**mobile** +
+__optional__|用户电话|string
+|**name** +
+__optional__|用户姓名|string
+|**password** +
+__optional__|用户密码|string
+|**roleIds** +
+__optional__|用户角色ID|< string > array
+|**username** +
+__optional__|用户名|string
+|===
+
+
+[[_uservo]]
+=== UserVo
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**createdBy** +
+__optional__|string
+|**createdTime** +
+__optional__|string (date-time)
+|**deleted** +
+__optional__|string
+|**description** +
+__optional__|string
+|**id** +
+__optional__|integer (int64)
+|**mobile** +
+__optional__|string
+|**name** +
+__optional__|string
+|**roleIds** +
+__optional__|< string > array
+|**updatedBy** +
+__optional__|string
+|**updatedTime** +
+__optional__|string (date-time)
+|**username** +
+__optional__|string
+|===
+
+
+[[_366d985152b91dae9e8d645c89de2772]]
+=== 请求结果封装类
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|请求结果编码|string
+|**data** +
+__optional__|请求返回数据|object
+|**mesg** +
+__optional__|请求结果信息|string
+|**time** +
+__optional__|请求时间|string
+|===
+
+
+[[_b431a48635352a58fed140cf6ffbe80c]]
+=== 请求结果封装类«UserVo»
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|请求结果编码|string
+|**data** +
+__optional__|请求返回数据|<<_uservo,UserVo>>
+|**mesg** +
+__optional__|请求结果信息|string
+|**time** +
+__optional__|请求时间|string
+|===
+
+
+

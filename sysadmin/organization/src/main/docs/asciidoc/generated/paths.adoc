@@ -1,0 +1,275 @@
+
+[[_paths]]
+== Paths
+
+[[_addusingpost]]
+=== 添加用户
+....
+POST /user
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**userForm** +
+__required__|用户表单信息|<<_userform,UserForm>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_366d985152b91dae9e8d645c89de2772,请求结果封装类>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+[[_queryusingget]]
+=== 获取用户
+....
+GET /user
+....
+
+
+==== Description
+根据用户唯一标识（username/mobile）获取用户
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**uniqueId** +
+__required__|用户唯一标识(username/mobile)|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_b431a48635352a58fed140cf6ffbe80c,请求结果封装类«UserVo»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+[[_searchusingpost]]
+=== 搜索用户
+....
+POST /user/search
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**queryForm** +
+__required__|搜索用户信息|<<_userqueryform,UserQueryForm>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_366d985152b91dae9e8d645c89de2772,请求结果封装类>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+[[_getusingget]]
+=== 获取用户
+....
+GET /user/{id}
+....
+
+
+==== Description
+根据用户id获取用户
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|用户id|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_b431a48635352a58fed140cf6ffbe80c,请求结果封装类«UserVo»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+[[_updateusingput]]
+=== 更新用户
+....
+PUT /user/{id}
+....
+
+
+==== Description
+根据用户id更新用户
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|用户id|string
+|**Body**|**updateForm** +
+__required__|更新信息|<<_userupdateform,UserUpdateForm>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_366d985152b91dae9e8d645c89de2772,请求结果封装类>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+[[_deleteusingdelete]]
+=== 删除用户
+....
+DELETE /user/{id}
+....
+
+
+==== Description
+根据用户id删除用户
+
+
+==== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|用户id|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_366d985152b91dae9e8d645c89de2772,请求结果封装类>>
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Produces
+
+* `\*/*`
+
+
+==== Tags
+
+* user-controller
+
+
+
