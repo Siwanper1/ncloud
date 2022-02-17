@@ -13,6 +13,10 @@ cd /
 rabbitmq-server
 ```
 
+[Nacos](http://localhost:8848/nacos/)
+[Swagger](http://localhost:9001/swagger-ui.html)
+[用户管理](http://localhost:9001/)
+
 # 这是一级标题
 ## 这是二级标题
 ### 这是三级标题

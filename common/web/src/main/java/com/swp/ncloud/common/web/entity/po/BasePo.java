@@ -30,7 +30,7 @@ public class BasePo implements Serializable {
     @TableField(fill = FieldFill.INSERT)
     /**
      * @DateTimeFormat 为入参格式化
-     * @JsonFormat 为出参格式话
+     * @JsonFormat 为出参格式化
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createdTime;
