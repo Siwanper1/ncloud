@@ -49,6 +49,6 @@ public class UserForm extends BaseForm<User> {
     private Boolean accountNonLocked = true;
 
     @ApiModelProperty("用户角色ID")
-    private Set<String> roleIds;
+    private Set<Long> roleIds;
 
 }

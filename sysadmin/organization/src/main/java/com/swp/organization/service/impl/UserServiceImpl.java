@@ -13,9 +13,11 @@ import com.swp.organization.entity.param.UserQueryParam;
 import com.swp.organization.entity.po.User;
 import com.swp.organization.entity.vo.UserVo;
 import com.swp.organization.exception.UserNotFoundException;
+import com.swp.organization.service.UserRoleService;
 import com.swp.organization.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,12 +25,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 @Slf4j
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+    @Autowired
+    private UserRoleService userRoleService;
 
     @Bean
     PasswordEncoder passwordEncoder(){
@@ -41,6 +46,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (ObjectUtils.isEmpty(user)) {
             throw new UserNotFoundException("用户不存在");
         }
+        user.setRoleIds(userRoleService.queryByUserId(user.getId()));
         return new UserVo(user);
     }
 
@@ -51,19 +57,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (ObjectUtils.isEmpty(user)) {
             throw new UserNotFoundException("用户不存在");
         }
+        user.setRoleIds(userRoleService.queryByUserId(user.getId()));
         return new UserVo(user);
     }
-    
+
+    @Transactional
     @Override
     public boolean add(User user) {
         if (StringUtils.isNotBlank(user.getPassword())){
             user.setPassword(passwordEncoder().encode(user.getPassword()));
         }
         boolean save = this.save(user);
-        log.info("add result : {}", save);
+        log.info("add result : {}", save, user.getId());
+        this.userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return save;
     }
 
+    @Transactional
     @CacheInvalidate(name = "user::" ,key = "#id")
     @Override
     public boolean delete(long id) {
@@ -71,16 +81,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (ObjectUtils.isEmpty(user)) {
             throw new UserNotFoundException("用户不存在");
         } else {
+            this.userRoleService.removeByUserId(id);
             return this.removeById(id);
         }
     }
 
+    @Transactional
     @CacheInvalidate(name = "user::" ,key = "#user.id")
     @Override
     public boolean update(User user) {
         if (StringUtils.isNotBlank(user.getPassword())){
             user.setPassword(passwordEncoder().encode(user.getPassword()));
         }
+        this.userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return this.updateById(user);
     }
 

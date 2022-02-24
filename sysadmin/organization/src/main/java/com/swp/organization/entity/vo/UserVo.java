@@ -24,7 +24,7 @@ public class UserVo extends BaseVo<User> {
     private String mobile;
     private String username;
     private String description;
-    private Set<String> roleIds;
+    private Set<Long> roleIds;
     private String deleted;
     private String createdBy;
     private String updatedBy;

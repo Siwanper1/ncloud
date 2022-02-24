@@ -13,16 +13,13 @@ import java.util.Set;
 @Data
 @ApiModel(description = "更新用户信息")
 public class UserUpdateForm extends BaseForm<User> {
-    @Length(min = 1, max = 20, message = "用户名长度1～20个字符")
+
     @ApiModelProperty("用户名")
     private String username;
-    @Length(min = 6, max = 20, message = "用户名长度6～20个字符")
     @ApiModelProperty("用户密码")
     private String password;
-    @NotBlank(message = "姓名不能为空")
     @ApiModelProperty("用户姓名")
     private String name;
-    @NotBlank(message = "电话不能为空")
     @ApiModelProperty("用户电话")
     private String mobile;
     @ApiModelProperty("用户描述")
@@ -41,6 +38,6 @@ public class UserUpdateForm extends BaseForm<User> {
     private Boolean accountNonLocked = true;
 
     @ApiModelProperty("用户角色ID")
-    private Set<String> roleIds;
+    private Set<Long> roleIds;
 
 }
