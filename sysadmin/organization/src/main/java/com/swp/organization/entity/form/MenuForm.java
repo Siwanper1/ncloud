@@ -7,13 +7,14 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @ApiModel("菜单信息")
 public class MenuForm extends BaseForm<Menu> {
 
     @ApiModelProperty("父菜单")
-    @NotBlank(message = "父菜单不能为空")
+    @NotNull(message = "父菜单不能为空")
     private long parentId;
     @ApiModelProperty("菜单类型")
     private String type;
