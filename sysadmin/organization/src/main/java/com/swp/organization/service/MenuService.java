@@ -41,7 +41,7 @@ public interface MenuService {
      * 查询所有菜单
      * @return
      */
-    List<Menu> getAll();
+    List<Menu> getAll(List<Long> menuIds);
 
     /**
      * 分页查询菜单

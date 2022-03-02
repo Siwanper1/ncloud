@@ -11,7 +11,6 @@ import com.swp.ncloud.common.core.exception.BaseException;
 import com.swp.organization.dao.MenuMapper;
 import com.swp.organization.entity.param.MenuQueryParam;
 import com.swp.organization.entity.po.Menu;
-import com.swp.organization.entity.po.Resource;
 import com.swp.organization.exception.OrganizationErrorType;
 import com.swp.organization.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
@@ -63,8 +62,10 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     }
 
     @Override
-    public List<Menu> getAll() {
-        List<Menu> list = query(-1, this.list());
+    public List<Menu> getAll(List<Long> menuIds) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.in("menuId", menuIds);
+        List<Menu> list = query(-1, this.list(queryWrapper));
         return list;
     }
 

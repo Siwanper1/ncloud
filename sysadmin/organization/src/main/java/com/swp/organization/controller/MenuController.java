@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @Api("菜单管理")
@@ -77,8 +78,8 @@ public class MenuController {
 
     @ApiOperation(value = "根据所有查询菜单")
     @GetMapping("/all")
-    public Result getAll(){
-        List<Menu> menus = this.menuService.getAll();
+    public Result getAll(List<Long> menuIds){
+        List<Menu> menus = this.menuService.getAll(menuIds);
         return Result.success(menus);
     }
 
