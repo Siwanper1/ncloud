@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("role")
@@ -75,6 +76,14 @@ public class RoleController {
     public Result<Role> get(@PathVariable int id) {
         log.info("get role by id : {}" ,id);
         return Result.success(this.roleService.get(id));
+    }
+
+    @ApiOperation(value = "查询角色", notes = "根据用户id查询用户所拥有的角色信息")
+    @ApiImplicitParam(paramType = "path", name = "userId", value = "用户id", required = true, dataType = "string")
+    @GetMapping("/user/{userId}")
+    public Result<List<Role>> getByUserId(@PathVariable int userId){
+        List<Role> roles = this.roleService.getByUserId(userId);
+        return Result.success(roles);
     }
 
     @ApiOperation(value = "查询所有角色")

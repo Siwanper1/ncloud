@@ -11,13 +11,16 @@ import com.swp.organization.entity.po.Role;
 import com.swp.organization.exception.RoleNotFoundException;
 import com.swp.organization.service.RoleResourceService;
 import com.swp.organization.service.RoleService;
+import com.swp.organization.service.UserRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @Service
@@ -26,6 +29,8 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     @Autowired
     private RoleResourceService roleResourceService;
 
+    @Autowired
+    private UserRoleService userRoleService;
     //@CreateCache
 
     @Transactional
@@ -63,6 +68,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         }
         role.setResourceIds(this.roleResourceService.queryByRoleId(id));
         return role;
+    }
+
+    @Cached(name = "role4user::", key = "#userId", cacheType = CacheType.BOTH)
+    @Override
+    public List<Role> getByUserId(long userId) {
+        Set<Long> roleIds = this.userRoleService.queryByUserId(userId);
+        return (List<Role>) this.listByIds(roleIds);
     }
 
     @Override

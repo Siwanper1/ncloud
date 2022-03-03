@@ -22,6 +22,7 @@
     <modules>
         <module>webapps</module>
         <module>common</module>
+        <module>auth</module>
     </modules>
 
     <dependencyManagement>

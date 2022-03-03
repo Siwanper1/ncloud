@@ -38,6 +38,13 @@ public interface RoleService {
     Role get(int id);
 
     /**
+     * 根据用户Id查询角色
+     * @param userId
+     * @return
+     */
+    List<Role> getByUserId(long userId);
+
+    /**
      * 查询所有的角色
      * @return
      */
