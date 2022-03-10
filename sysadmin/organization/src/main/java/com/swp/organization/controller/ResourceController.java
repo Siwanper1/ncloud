@@ -61,6 +61,11 @@ public class ResourceController {
         return Result.success(resource);
     }
 
+    @GetMapping("/user/{username}")
+    public Result getByUsername(@PathVariable String username){
+        return Result.success(this.resourceService.getByUsername(username));
+    }
+
     @GetMapping("/all")
     public Result get(){
         List<Resource> all = this.resourceService.getAll();

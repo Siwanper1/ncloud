@@ -40,10 +40,9 @@ public class UserController {
     @ApiOperation(value = "获取用户", notes = "根据用户唯一标识（username/mobile）获取用户")
     @ApiImplicitParam(name = "uniqueId", value = "用户唯一标识(username/mobile)", required = true, paramType = "query", dataType = "string")
     @GetMapping
-    public Result<UserVo> query(@RequestParam  String uniqueId){
+    public Result<User> query(@RequestParam  String uniqueId){
         log.info("query with uniqueId : {}" ,uniqueId);
-        UserVo userVo = userService.getByUniqueId(uniqueId);
-        return Result.success(userVo);
+        return Result.success(userService.getByUniqueId(uniqueId));
     }
 
     @ApiOperation(value = "添加用户")

@@ -17,6 +17,7 @@
 
    <modules>
        <module>authorization-server</module>
+       <module>authentication-server</module>
    </modules>
 
     <dependencies>
@@ -28,6 +29,22 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--SpirngSecurity + OAuth2 + JWT-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>[2.2.4,)</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-security</artifactId>
+        </dependency>
+
         <!--  数据库   -->
         <dependency>
             <groupId>com.swp</groupId>

@@ -52,13 +52,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Cached(name = "user::", key = "#uniqueId", cacheType = CacheType.BOTH)
     @Override
-    public UserVo getByUniqueId(String uniqueId) {
+    public User getByUniqueId(String uniqueId) {
         User user = this.getOne(new QueryWrapper<User>().eq("username", uniqueId).or().eq("mobile", uniqueId));
         if (ObjectUtils.isEmpty(user)) {
             throw new UserNotFoundException("用户不存在");
         }
         user.setRoleIds(userRoleService.queryByUserId(user.getId()));
-        return new UserVo(user);
+        return user;
     }
 
     @Transactional

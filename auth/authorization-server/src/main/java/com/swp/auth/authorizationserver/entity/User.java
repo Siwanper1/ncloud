@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User extends BasePo {
+
     private String name;
     private String mobile;
     private String username;
@@ -17,4 +18,5 @@ public class User extends BasePo {
     private Boolean accountNonExpired;
     private Boolean credentialsNonExpired;
     private Boolean accountNonLocked;
+
 }

@@ -20,7 +20,7 @@ public interface UserService {
      * @param uniqueId
      * @return
      */
-    UserVo getByUniqueId(String uniqueId);
+    User getByUniqueId(String uniqueId);
 
     /**
      * 添加用户

@@ -38,6 +38,13 @@ public interface ResourceService {
     Resource get(int id);
 
     /**
+     * 根据用户名查询资源
+     * @param username
+     * @return
+     */
+    List<Resource> getByUsername(String username);
+
+    /**
      * 查询所有资源
      * @return
      */

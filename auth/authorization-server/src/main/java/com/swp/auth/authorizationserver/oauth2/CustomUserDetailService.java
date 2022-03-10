@@ -4,6 +4,7 @@ import com.swp.auth.authorizationserver.entity.Role;
 import com.swp.auth.authorizationserver.entity.User;
 import com.swp.auth.authorizationserver.service.RoleService;
 import com.swp.auth.authorizationserver.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service("userDetailService")
 public class CustomUserDetailService implements UserDetailsService {
 
@@ -27,6 +29,7 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String uniqueId) throws UsernameNotFoundException {
         User user = userService.getByUniqueId(uniqueId);
+        log.info("user : {}" , user);
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
@@ -40,6 +43,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     private Set<GrantedAuthority> getGrantedAuthority(User user){
         Set<Role> roles = roleService.queryRolesByUserId(String.valueOf(user.getId()));
-        return roles.stream().map(role -> new SimpleGrantedAuthority(String.valueOf(role.getId()))).collect(Collectors.toSet());
+        log.info("roles : {}", roles);
+        return roles.stream().map(role -> new SimpleGrantedAuthority(String.valueOf(role.getCode()))).collect(Collectors.toSet());
     }
 }
