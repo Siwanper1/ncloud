@@ -2,6 +2,7 @@ package com.swp.auth.authorizationserver.config;
 
 import com.swp.auth.authorizationserver.exception.CustomWebResponseExceptionTranslator;
 import com.swp.auth.authorizationserver.oauth2.enhancer.CustomTokenEnhancer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
+@Slf4j
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -36,7 +38,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private DataSource dataSource;
 
-    @Value("spring.security.oauth2.jwt.signingKey")
+    @Value("${spring.security.oauth2.jwt.signingKey}")
     private String signingKey;
 
     @Qualifier("authenticationManagerBean")
@@ -88,6 +90,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+
         converter.setSigningKey(signingKey);
         return converter;
     }
