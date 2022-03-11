@@ -23,6 +23,7 @@
         <module>webapps</module>
         <module>common</module>
         <module>auth</module>
+        <module>gateway</module>
     </modules>
 
     <dependencyManagement>
