@@ -1,0 +1,68 @@
+spring:
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 200
+        max-idle: 10
+        max-wait: -1
+    timeout: 1000
+#  网关服务化
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+  security:
+    oauth2:
+      jwt:
+        signingKey: 123456
+gateway:
+  ignore:
+    authentication:
+      startWith: /oauth,/open
+
+
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  hidePackages: com.siwanper.gateway
+  local:
+    # ????????
+    default:
+      type: caffeine
+      keyConvertor: fastjson
+  remote:
+    # ?????????
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    com.siwanper.gateway: debug
+    com.jalja.org.spring: debug
+  path: logs/
+  file:
+    max-size: 1GB
+
+feign:
+  okhttp:
+    enabled: true

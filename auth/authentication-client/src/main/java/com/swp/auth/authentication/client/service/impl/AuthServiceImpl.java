@@ -23,7 +23,7 @@ public class AuthServiceImpl implements AuthService {
     /**
      * 认证可以忽略的url，以逗号分隔
      */
-    @Value("${gate.ignore.authentication.startWith}")
+    @Value("${gateway.ignore.authentication.startWith}")
     private String ignoreUrl = "/oauth";
 
     @Value("${spring.security.oauth2.jwt.signingKey}")
@@ -31,6 +31,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Result auth(String authorization, String url, String method) {
+        log.info("url:{}, method:{}, authorization:{}", url, method, authorization);
         Result result = authenticationProvider.auth(authorization, url, method);
         return result;
     }
@@ -49,9 +50,13 @@ public class AuthServiceImpl implements AuthService {
     public boolean hasPermission(String authorization, String url, String method) {
         // 如果请求未携带token信息，直接返回false
         if (StringUtils.isBlank(authorization) || !authorization.startsWith(BEARER))
+        {
+            log.info("token 为空 或者 不以BEARER 为首");
             return false;
+        }
         // 判断token的格式是否正确
         if (invalidAuthorization(authorization)) {
+            log.info("token 格式不正确");
             return false;
         }
         // 远程调用认证服务

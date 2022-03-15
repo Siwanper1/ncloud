@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-@FeignClient(name = "authentication-client", fallback = AuthenticationProvider.AuthenticationProviderFallback.class)
+@FeignClient(name = "authentication-server", fallback = AuthenticationProvider.AuthenticationProviderFallback.class)
 public interface AuthenticationProvider {
 
     @PostMapping("/auth/permission")

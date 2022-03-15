@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Value("spring.security.oauth2.jwt.signingKey")
+    @Value("${spring.security.oauth2.jwt.signingKey}")
     private String signingKey;
 
     @Override
