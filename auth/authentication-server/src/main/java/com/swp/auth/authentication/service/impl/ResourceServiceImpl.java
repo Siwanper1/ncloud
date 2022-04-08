@@ -1,6 +1,6 @@
 package com.swp.auth.authentication.service.impl;
 
-import com.swp.auth.authentication.entity.po.Resource;
+import com.swp.organization.entity.po.Resource;
 import com.swp.auth.authentication.provider.ResourceProvider;
 import com.swp.auth.authentication.service.NewMvcRequestMatcher;
 import com.swp.auth.authentication.service.ResourceService;
@@ -61,6 +61,17 @@ public class ResourceServiceImpl implements ResourceService {
     public Set<Resource> queryResourceByUser(String username) {
         Result<Set<Resource>> result = resourceProvider.resources(username);
         return result.getData();
+    }
+
+    @Override
+    public void save(Resource resource) {
+        log.info("save resource: {}", resource);
+        resourceConfigAttributes.put(this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()), new SecurityConfig(resource.getCode()));
+    }
+
+    @Override
+    public void remove(Resource resource) {
+        resourceConfigAttributes.remove(this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()));
     }
 
     private NewMvcRequestMatcher newMvcRequestMatcher(String pattern, String method) {

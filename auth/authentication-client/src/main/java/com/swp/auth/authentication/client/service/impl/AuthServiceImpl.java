@@ -80,6 +80,7 @@ public class AuthServiceImpl implements AuthService {
             result = Boolean.FALSE;
         } catch (SignatureException | ExpiredJwtException | MalformedJwtException ex) {
             log.error("user token error :{}", ex.getMessage());
+            throw ex;
         }
         return result;
     }

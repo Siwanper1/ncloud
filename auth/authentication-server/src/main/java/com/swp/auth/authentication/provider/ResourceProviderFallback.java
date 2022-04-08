@@ -1,6 +1,6 @@
 package com.swp.auth.authentication.provider;
 
-import com.swp.auth.authentication.entity.po.Resource;
+import com.swp.organization.entity.po.Resource;
 import com.swp.ncloud.common.core.entity.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 

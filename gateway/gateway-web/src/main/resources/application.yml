@@ -16,6 +16,16 @@ spring:
 #      discovery:
 #        locator:
 #          enabled: true
+  cloud:
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+
   security:
     oauth2:
       jwt:

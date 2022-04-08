@@ -21,7 +21,7 @@ public class Resource extends BasePo {
     private String url;
     private String method;
     @TableLogic
-    private String deleted;
+    private String deleted = "N";
     private String description;
 
 }

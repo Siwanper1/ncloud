@@ -1,4 +1,4 @@
-package com.swp.auth.authentication.entity.po;
+package com.swp.organization.entity.po;
 
 import com.swp.ncloud.common.web.entity.po.BasePo;
 import lombok.AllArgsConstructor;
@@ -16,5 +16,6 @@ public class Resource extends BasePo {
     private String url;
     private String method;
     private String description;
+    private String deleted;
 
 }

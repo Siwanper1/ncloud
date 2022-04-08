@@ -1,6 +1,6 @@
 package com.swp.auth.authentication.service.impl;
 
-import com.swp.auth.authentication.entity.po.Resource;
+import com.swp.organization.entity.po.Resource;
 import com.swp.auth.authentication.service.AuthenticationService;
 import com.swp.auth.authentication.service.ResourceService;
 import lombok.extern.slf4j.Slf4j;

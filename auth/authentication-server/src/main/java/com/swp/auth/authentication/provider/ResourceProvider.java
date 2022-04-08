@@ -1,6 +1,6 @@
 package com.swp.auth.authentication.provider;
 
-import com.swp.auth.authentication.entity.po.Resource;
+import com.swp.organization.entity.po.Resource;
 import com.swp.ncloud.common.core.entity.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

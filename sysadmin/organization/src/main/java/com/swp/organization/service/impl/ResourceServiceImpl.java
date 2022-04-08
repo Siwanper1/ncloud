@@ -9,11 +9,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.swp.ncloud.common.core.exception.BaseException;
 import com.swp.ncloud.common.core.exception.SystemErrorType;
+import com.swp.organization.config.BusConfig;
 import com.swp.organization.dao.ResourceMapper;
 import com.swp.organization.entity.param.ResourceQueryParam;
 import com.swp.organization.entity.po.Resource;
 import com.swp.organization.entity.po.RoleResource;
 import com.swp.organization.entity.po.User;
+import com.swp.organization.event.BusSender;
 import com.swp.organization.exception.OrganizationErrorType;
 import com.swp.organization.service.ResourceService;
 import com.swp.organization.service.RoleResourceService;
@@ -44,11 +46,15 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     @Autowired
     private RoleResourceService roleResourceService;
 
+    @Autowired
+    private BusSender sender;
+
     @Transactional
     @Override
     public boolean add(Resource resource) {
         boolean result = this.save(resource);
         log.info("add resource : {}", result);
+        sender.send(BusConfig.ROUTE_KEY, resource);
         return result;
     }
 

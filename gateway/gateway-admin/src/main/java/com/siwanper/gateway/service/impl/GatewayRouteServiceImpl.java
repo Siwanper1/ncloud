@@ -7,14 +7,17 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.siwanper.gateway.config.BusConfig;
 import com.siwanper.gateway.dao.GatewayRouteMapper;
 import com.siwanper.gateway.entity.param.GatewayRouteQueryParam;
 import com.siwanper.gateway.entity.po.GatewayRoute;
 import com.siwanper.gateway.entity.vo.GatewayRouteVo;
+import com.siwanper.gateway.event.BusSender;
 import com.siwanper.gateway.exception.GatewayNotFoundException;
 import com.siwanper.gateway.service.GatewayRouteService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
@@ -32,6 +35,9 @@ public class GatewayRouteServiceImpl extends ServiceImpl<GatewayRouteMapper, Gat
 
     private static final String gatewayRouteCacheName = "GATEWAYROUT::";
 
+    @Autowired
+    private BusSender busSender;
+
     @CreateCache(name = gatewayRouteCacheName, cacheType = CacheType.REMOTE)
     private Cache<String, RouteDefinition> gatewayRouteCache;
 
@@ -41,6 +47,8 @@ public class GatewayRouteServiceImpl extends ServiceImpl<GatewayRouteMapper, Gat
         // 将网关缓存在redis中
         RouteDefinition routeDefinition = gatewayRouteToRouteDefinition(gatewayRoute);
         gatewayRouteCache.put(gatewayRoute.getRouteId(), routeDefinition);
+        // 通过消息队列发送网关至gateway-web中
+        busSender.send(BusConfig.ROUTE_KEY, routeDefinition);
         return result;
     }
 

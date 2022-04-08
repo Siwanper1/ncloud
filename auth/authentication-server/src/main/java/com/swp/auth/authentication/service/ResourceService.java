@@ -1,6 +1,6 @@
 package com.swp.auth.authentication.service;
 
-import com.swp.auth.authentication.entity.po.Resource;
+import com.swp.organization.entity.po.Resource;
 import org.springframework.security.access.ConfigAttribute;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,5 +26,17 @@ public interface ResourceService {
      * @return
      */
     Set<Resource> queryResourceByUser(String username);
+
+    /**
+     * 保存资源到内存中
+     * @param resource
+     */
+    void save(Resource resource);
+
+    /**
+     * 从内存中删除资源
+     * @param resource
+     */
+    void remove(Resource resource);
 
 }
