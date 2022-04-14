@@ -1,0 +1,44 @@
+version: '3'
+services:
+  #授权服务
+  authorization-server:
+    image: siwanper/authorization-server:latest
+    container_name: nc-authorization-server
+    restart: always
+    networks:
+      - nc-net
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      - authentication-server
+
+  #认证服务
+  authentication-server:
+    image: siwanper/authentication-server:latest
+    container_name: nc-authentication-server
+    restart: always
+    networks:
+      - nc-net
+    ports:
+      - "8001:8001"
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      - organization
+
+  #组织服务
+  organization:
+    image: siwanper/organization:latest
+    container_name: nc-organization
+    restart: always
+    networks:
+      - nc-net
+    ports:
+      - "8010:8010"
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai

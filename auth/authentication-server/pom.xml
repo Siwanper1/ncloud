@@ -17,9 +17,49 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.swp</groupId>
+			<artifactId>web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!--oauth2认证-->
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-security</artifactId>
 		</dependency>
+		<!--jetcache缓存 -->
+		<dependency>
+			<groupId>com.alicp.jetcache</groupId>
+			<artifactId>jetcache-starter-redis</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.10.8</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<configuration>
+					<imageName>siwanper/${project.artifactId}</imageName>
+					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+					<rm>true</rm>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

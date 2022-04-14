@@ -1,0 +1,84 @@
+2022-04-14 10:18:20.916  INFO 5639 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: CompositePropertySource {name='NACOS', propertySources=[NacosPropertySource {name='organization.yml'}]}
+2022-04-14 10:18:21.037  INFO 5639 --- [main] c.s.o.OrganizationApplication            : No active profile set, falling back to default profiles: default
+2022-04-14 10:18:23.947  WARN 5639 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-04-14 10:18:24.433  WARN 5639 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2022-04-14 10:18:24.464  WARN 5639 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2022-04-14 10:18:24.919  INFO 5639 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-14 10:18:24.925  INFO 5639 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-04-14 10:18:24.998  INFO 5639 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37ms. Found 0 repository interfaces.
+2022-04-14 10:18:25.173  WARN 5639 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-04-14 10:18:25.913  INFO 5639 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8ae0cf20-a05b-3710-a785-9b91d06dc413
+2022-04-14 10:18:25.925  INFO 5639 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-04-14 10:18:25.935  INFO 5639 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-04-14 10:18:25.941  INFO 5639 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-04-14 10:18:26.119  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.133  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'myRedisConfig' of type [com.swp.organization.config.MyRedisConfig$$EnhancerBySpringCGLIB$$c0998b74] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.135  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alicp.jetcache.anno.config.JetCacheProxyConfiguration' of type [com.alicp.jetcache.anno.config.JetCacheProxyConfiguration$$EnhancerBySpringCGLIB$$448be835] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.147  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3824251e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.211  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alicp.jetcache.anno.config.CommonConfiguration' of type [com.alicp.jetcache.anno.config.CommonConfiguration$$EnhancerBySpringCGLIB$$c3922dad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.329  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$a315e04d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.347  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration' of type [org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration$$EnhancerBySpringCGLIB$$7ea7eb6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.363  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration' of type [org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration$$EnhancerBySpringCGLIB$$b78f943a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.465  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mbeanServer' of type [com.sun.jmx.mbeanserver.JmxMBeanServer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:26.486  INFO 5639 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$543e281b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-14 10:18:27.459  INFO 5639 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-14 10:18:28.118  INFO 5639 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-14 10:18:30.839  INFO 5639 --- [main] com.swp.organization.config.BusConfig    : queue name : organization
+2022-04-14 10:18:30.841  INFO 5639 --- [main] com.swp.organization.config.BusConfig    : topic exchange name : com.swp
+2022-04-14 10:18:30.847  INFO 5639 --- [main] com.swp.organization.config.BusConfig    : binding queue organization to exchange com.swp with routekey organization-resource-add
+2022-04-14 10:18:31.897  WARN 5639 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-04-14 10:18:31.897  INFO 5639 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-04-14 10:18:31.919  WARN 5639 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-04-14 10:18:31.919  INFO 5639 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-04-14 10:18:32.040  INFO 5639 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2022-04-14 10:18:32.041  INFO 5639 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Environment :null
+2022-04-14 10:18:32.042  INFO 5639 --- [main] com.alibaba.nacos.client.naming          : initializer namespace from System Property :null
+2022-04-14 10:18:32.133  INFO 5639 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-04-14 10:18:32.304  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area default , type= redis
+2022-04-14 10:18:32.366  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area longTime , type= redis
+2022-04-14 10:18:32.370  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area shortTime , type= redis
+2022-04-14 10:18:32.376  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area default , type= caffeine
+2022-04-14 10:18:32.378  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area longTime , type= caffeine
+2022-04-14 10:18:32.379  INFO 5639 --- [main] c.a.j.a.AbstractCacheAutoInit            : init cache area shortTime , type= caffeine
+2022-04-14 10:18:32.407  INFO 5639 --- [main] c.a.j.s.DefaultCacheMonitorManager       : cache stat period at 15 MINUTES
+2022-04-14 10:18:33.386  INFO 5639 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-04-14 10:18:34.823  INFO 5639 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'organization-1.springCloudBusInput' has 1 subscriber(s).
+2022-04-14 10:18:35.003  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel errorChannel
+2022-04-14 10:18:35.066  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel springCloudBusOutput
+2022-04-14 10:18:35.109  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel springCloudBusInput
+2022-04-14 10:18:35.126  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel nullChannel
+2022-04-14 10:18:35.155  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@34e6f222
+2022-04-14 10:18:35.217  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageHandler errorLogger
+2022-04-14 10:18:35.258  INFO 5639 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-04-14 10:18:35.259  INFO 5639 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'organization-1.errorChannel' has 1 subscriber(s).
+2022-04-14 10:18:35.259  INFO 5639 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2022-04-14 10:18:35.344  INFO 5639 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: CompositePropertySource {name='NACOS', propertySources=[NacosPropertySource {name='organization.yml'}]}
+2022-04-14 10:18:35.565  INFO 5639 --- [main] c.a.n.client.config.impl.ClientWorker    : [fixed-127.0.0.1_8848] [subscribe] organization.yml+DEFAULT_GROUP
+2022-04-14 10:18:35.567  INFO 5639 --- [main] c.a.nacos.client.config.impl.CacheData   : [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=organization.yml, group=DEFAULT_GROUP, cnt=1
+2022-04-14 10:18:35.644  INFO 5639 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2022-04-14 10:18:35.872  INFO 5639 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#398b20eb:0/SimpleConnection@65bdb30 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 51646]
+2022-04-14 10:18:36.177  INFO 5639 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'organization-1.springCloudBusOutput' has 1 subscriber(s).
+2022-04-14 10:18:36.209  INFO 5639 --- [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw, bound to: springCloudBus
+2022-04-14 10:18:36.320  INFO 5639 --- [main] o.s.i.monitor.IntegrationMBeanExporter   : Registering MessageChannel springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors
+2022-04-14 10:18:36.398  INFO 5639 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'organization-1.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors' has 1 subscriber(s).
+2022-04-14 10:18:36.399  INFO 5639 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'organization-1.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors' has 2 subscriber(s).
+2022-04-14 10:18:36.470  INFO 5639 --- [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started inbound.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw
+2022-04-14 10:18:36.566  INFO 5639 --- [main] c.s.o.OrganizationApplication            : Started OrganizationApplication in 19.936 seconds (JVM running for 31.588)
+2022-04-14 10:18:50.690  INFO 5639 --- [Thread-13] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2022-04-14 10:18:51.516  INFO 5639 --- [Thread-13] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2022-04-14 10:18:51.516  INFO 5639 --- [Thread-13] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped inbound.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw
+2022-04-14 10:18:51.517  INFO 5639 --- [Thread-13] o.s.c.stream.binder.BinderErrorChannel   : Channel 'organization-1.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors' has 1 subscriber(s).
+2022-04-14 10:18:51.517  INFO 5639 --- [Thread-13] o.s.c.stream.binder.BinderErrorChannel   : Channel 'organization-1.springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors' has 0 subscriber(s).
+2022-04-14 10:18:51.538  INFO 5639 --- [Thread-13] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-04-14 10:18:51.539  INFO 5639 --- [Thread-13] o.s.i.channel.PublishSubscribeChannel    : Channel 'organization-1.errorChannel' has 0 subscriber(s).
+2022-04-14 10:18:51.539  INFO 5639 --- [Thread-13] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2022-04-14 10:18:51.543  INFO 5639 --- [Thread-13] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2022-04-14 10:18:51.544  INFO 5639 --- [Thread-13] c.a.j.s.DefaultCacheMonitorManager       : cache stat canceled
+2022-04-14 10:18:51.634  INFO 5639 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: springCloudBus.anonymous.XcfYOgBEQLmCpYJKAMfUmw.errors
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: errorChannel
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: springCloudBusOutput
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: springCloudBusInput
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: nullChannel
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: org.springframework.cloud.stream.binding.StreamListenerMessageHandler@34e6f222
+2022-04-14 10:18:51.636  INFO 5639 --- [Thread-13] o.s.i.monitor.IntegrationMBeanExporter   : Summary on shutdown: _org.springframework.integration.errorLogger.handler
