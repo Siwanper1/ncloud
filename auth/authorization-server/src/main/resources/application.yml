@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_auth?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:${DATASOURCE_DBTYPE:mysql}://123.57.144.26:${DATASOURCE_PORT:3306}/sc_auth?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.jdbc.Driver
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:Shi18740961619?}

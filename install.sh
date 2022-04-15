@@ -20,9 +20,10 @@ esac
 
 
 echo "1.3、清理当前脚本产生的容器和镜像"
-docker stop nc-rabbitmq nc-redis nc-mysql
-docker rm nc-rabbitmq nc-redis nc-mysql
-docker image rm rabbitmq:management-alpine redis:alpine mysql:5.7
+docker stop nc-rabbitmq nc-redis nc-mysql nc-nacos-standalone
+docker rm nc-rabbitmq nc-redis nc-mysql nc-nacos-standalone
+docker image rm rabbitmq:management-alpine redis:alpine mysql:5.7 nacos/nacos-server:1.1.3
+
 
 docker stop nc-authorization-server nc-authentication-server nc-organization nc-gateway-admin nc-gateway-web
 docker rm nc-authorization-server nc-authentication-server nc-organization nc-gateway-admin nc-gateway-web
@@ -40,12 +41,12 @@ cd -
 
 echo "4、docker-compose安装公共服务"
 cd docker-compose
-docker-compose -f docker-compose.yml up -d mysql
+#docker-compose -f docker-compose.yml up -d mysql
 docker-compose -f docker-compose.yml up -d redis
 docker-compose -f docker-compose.yml up -d rabbitmq
 
-echo "5、启动配置中心和注册中心"
-docker-compose -f docker-compose.yml -f docker-compose.nacos.yml up -d nacos
+#echo "5、启动配置中心和注册中心"
+#docker-compose -f docker-compose.yml -f docker-compose.nacos.yml up -d nacos
 
 echo "当前路径" && pwd
 cd -
@@ -100,28 +101,20 @@ esac
 echo "7.1、部署授权服务"
 cd auth/authorization-server
 mvn package && mvn docker:build
-
-echo "当前路径" && pwd
-cd -
-
-echo "运行authorization-server服务"
-cd docker-compose
-docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d authorization-server
-
 echo "当前路径" && pwd
 cd -
 
 echo "7.2、部署认证服务"
 cd auth/authentication-server
 mvn package && mvn docker:build
-
 echo "当前路径" && pwd
 cd -
 
+echo "运行authorization-server服务"
 echo "运行authentication-server服务"
 cd docker-compose
+docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d authorization-server
 docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d authentication-server
-
 echo "当前路径" && pwd
 cd -
 
@@ -145,14 +138,6 @@ esac
 echo "8.1、部署网关管理服务"
 cd gateway/gateway-admin
 mvn package && mvn docker:build
-
-echo "当前路径" && pwd
-cd -
-
-echo "运行gateway-admin服务"
-cd docker-compose
-docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-admin
-
 echo "当前路径" && pwd
 cd -
 
@@ -163,11 +148,12 @@ mvn package && mvn docker:build
 echo "当前路径" && pwd
 cd -
 
+echo "运行gateway-admin服务"
 echo "运行gateway-web服务"
 cd docker-compose
-docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-web
+docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-admin
 
+docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-web
 echo "当前路径" && pwd
 cd -
-
 

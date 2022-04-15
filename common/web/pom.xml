@@ -28,11 +28,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>5.1.0.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.10.8</version>
-        </dependency>
         <!--   mybatis 相关     -->
         <dependency>
             <groupId>org.mybatis</groupId>

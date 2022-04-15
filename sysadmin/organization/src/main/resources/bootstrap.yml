@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${REGISTER_HOST:127.0.0.1}:${REGISTER_POST:8848}
+        server-addr: 192.168.11.27:8848
       config:
-        server-addr: ${REGISTER_HOST:127.0.0.1}:${REGISTER_POST:8848}
+        server-addr: 192.168.11.27:8848
         file-extension: yml
